@@ -29,12 +29,12 @@
         }
 
         // Método para autenticar usuario
-        public function autenticarUsuario($usuario, $clave){
-            $consulta = "SELECT * FROM usuarios WHERE email = :email AND clave = :clave";
+        public function autenticarUsuario($email, $password){
+            $consulta = "SELECT * FROM usuarios WHERE email = :email AND password = :password";
             $stmt = $this->db->prepare($consulta);
 
-            $stmt->bindParam(':email', $usuario);
-            $stmt->bindParam(':clave', $clave);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
 
             $stmt->execute();
 

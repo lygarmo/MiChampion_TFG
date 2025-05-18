@@ -1,14 +1,10 @@
 <?php
-namespace Model;
-
-use PDO;
-use PDOException;
 
     class Conexion{
         private $host="localhost";
-        // private $port = "3306";
-        private $port = "3000";
-        private $db="michampionTFG";
+        private $port = "3306";
+        // private $port = "3000";
+        private $db="MiChampion_TFG";
         private $user="lydia";
         private $password="lydia";
         private $conexion;

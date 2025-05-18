@@ -3,7 +3,7 @@
                 <div id="brxe-plxjke" class="brxe-container mx-auto text-center">
                     <!-- Logo -->
                     <div id="brxe-sxniwt" class="mb-6">
-                        <img src="/git/TFG/public/michampion_logo.png" alt="Logo Mi Champion" class="mx-auto w-64 h-auto">
+                        <img src="public/michampion_logo.png" alt="Logo Mi Champion" class="mx-auto w-64 h-auto">
                     </div>
 
                     <div class="flex justify-center space-x-6 text-white mt-6">

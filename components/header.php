@@ -4,7 +4,7 @@
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
                 <a href="index.php" class="flex-shrink-0">
-                    <img src="/git/TFG/public/michampion_oscuro.png" alt="Mi Champion" class="h-20">
+                    <img src="public/michampion_oscuro.png" alt="Mi Champion" class="h-20">
                 </a>
 
 

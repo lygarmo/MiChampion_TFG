@@ -10,26 +10,39 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+    }
+    
+
+    $datos = [
+        'nombre' => $nombre,
+        'apellidos' => $apellidos,
+        'email' => $email
+    ];
+
+    // Validar campos vacíos
+    if (empty($nombre) || empty($apellidos) || empty($email) || empty($password)) {
+        $mensaje = "Todos los campos son obligatorios.";
+    } else {
+        // Crear conexión y objeto Usuario
         $conexion = new Conexion();
         $db = $conexion->getConexion();
-
         $usuario = new Usuario($db);
 
-        $datos = compact('nombre', 'apellidos', 'email'); // Para repintar el formulario
-
+        // Comprobar si el usuario ya existe
         if ($usuario->existeUsuario($email)) {
-            // Mostrar de nuevo el formulario con mensaje de error
-            $this->mostrarFormulario('Ya hay un usuario registrado con ese email', $datos);
+            $mensaje = "El correo ya está registrado.";
         } else {
-            // Insertar usuario, iniciar sesión y redirigir
+            // Insertar el usuario
             $usuario->insertarUsuario($nombre, $apellidos, $email, $password);
 
-            $_SESSION['usuario_email'] = $email;
+            // Opcional: iniciar sesión automáticamente
+            $_SESSION['email'] = $email;
 
-            // Redirigir a inicio.php
-            header('Location: /src/Views/inicio.php');
-            exit;
+            // Redirigir a otra página (inicio, perfil, etc.)
+            header('Location: panel_inicio.php');
+            exit();
         }
-    } else {
-         $this->mostrarFormulario();
     }
+
+// Mostrar el formulario nuevamente si hubo error
+include 'registro.php';
