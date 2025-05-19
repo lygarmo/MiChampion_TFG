@@ -46,5 +46,18 @@
                 return null; // Usuario no encontrado
             }
         }
+
+        public function obtenerIdUsuario($email) {
+            $stmt = $this->db->prepare("SELECT id FROM usuarios WHERE email = :email");
+            $stmt->execute([':email' => $email]);
+            return $stmt->fetchColumn();
+        }
+
+        public function obtenerNombre($email) {
+            $stmt = $this->db->prepare("SELECT nombre FROM usuarios WHERE email = :email");
+            $stmt->execute([':email' => $email]);
+            return $stmt->fetchColumn();
+        }
+
     }
 ?>

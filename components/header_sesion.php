@@ -1,47 +1,37 @@
-<header>
-    <nav class="fixed top-0 w-full z-50 bg-neutral-800 h-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex justify-between items-center h-full">
-                <!-- Logo -->
-                <a href="index.php" class="flex-shrink-0">
-                    <img src="public/michampion_oscuro.png" alt="Mi Champion" class="h-20">
-                </a>
-                <a href="catalogo_burgers.php" class="block px-4 py-2 text-sm hover:bg-neutral-700">Catálogo Burgers</a>
-                <a href="burgers_probadas.php" class="block px-4 py-2 text-sm hover:bg-neutral-700">Burgers Probadas</a>
-                
-                <div class="relative inline-block text-left">
-                    <button id="menuButton" class="block px-4 py-2 text-sm rounded-md bg-neutral-700 text-white hover:bg-neutral-600 focus:outline-none focus:ring-2 focus:ring-amber-400">
-                        <?php echo "Hola, Lydia!"; ?>
-                    </button>
+<!-- Importa la fuente Anton -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+    .font-anton {
+        font-family: 'Anton', sans-serif;
+    }
+</style>
 
-                    <div id="menuDropdown" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-neutral-800 ring-1 ring-black ring-opacity-5 hidden z-50">
-                        <div class="py-1 text-white">
-                            <a href="perfil.php" class="block px-4 py-2 text-sm hover:bg-neutral-700">Ver Perfil</a>
-                            <a href="cerrar_sesion.php" class="block px-4 py-2 text-sm text-red-400 hover:bg-neutral-700 hover:text-red-300">Cerrar Sesión</a>
-                        </div>
-                    </div>
+<header>
+    <nav class="fixed top-0 w-full z-50 bg-neutral-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center px-8">
+                
+                <!-- Logo -->
+                <a href="panel_inicio.php" class="flex items-center space-x-3 mr-20">
+                    <img src="public/michampion_oscuro.png" alt="Mi Champion" style="height: 110px;">
+                </a>
+
+                <!-- Enlaces principales -->
+                <div class="flex space-x-8 items-center">
+                    <a href="carta_burgers.php" class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200">
+                        Carta Burgers
+                    </a>
+                    <a href="burgers_probadas.php" class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200">
+                        Mis Burgers Probadas
+                    </a>
+                    <a href="perfil.php" class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200">
+                        Perfil
+                    </a>
+                    <a href="cerrar_sesion.php" class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-red-500 leading-none hover:text-amber-400 transition-colors duration-200">
+                        Cerrar sesión
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
-
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const menuDropdown = document.getElementById('menuDropdown');
-
-        menuButton.addEventListener('click', (event) => {
-            event.stopPropagation();  // <--- Evita que el clic se propague y cierre el menú
-            menuDropdown.classList.toggle('hidden');
-        });
-
-        // Para cerrar el menú si se hace clic fuera
-        document.addEventListener('click', () => {
-            menuDropdown.classList.add('hidden');
-        });
-
-        // También evita que clics dentro del menú cierren el menú
-        menuDropdown.addEventListener('click', (event) => {
-            event.stopPropagation();
-        });
-    </script>
 </header>
