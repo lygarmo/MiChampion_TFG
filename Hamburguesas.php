@@ -44,6 +44,7 @@
             return $resultado;
         }
 
+        // Alergenos todas las burgers
         public function obtenerAlergenosDeBurger($burgerId) {
             $stmt = $this->db->prepare("
                 SELECT a.nombre
@@ -53,6 +54,19 @@
             return $stmt->fetchAll(PDO::FETCH_COLUMN);
         }
 
+        // Alergenos por cada burger
+        public function obtenerAlergenosPorBurger($burgerId) {
+            $stmt = $this->db->prepare("
+            SELECT a.nombre
+            FROM alergenos a
+            JOIN alergenos_burgers ab ON a.id = ab.alergeno_id
+            WHERE ab.burger_id = ?");
+            $stmt->execute([$burgerId]);
+
+            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+        }
+
+        // Recuento burgers probadas
         public function contarBurgersProbadasPorUsuario($usuarioId) {
             $stmt = $this->db->prepare("
                 SELECT COUNT(*) 
@@ -64,10 +78,7 @@
         }
 
         public function contarTotalBurgers() {
-            $stmt = $this->db->prepare("
-                SELECT COUNT(*) 
-                FROM burgers
-            ");
+            $stmt = $this->db->prepare("SELECT COUNT(*) FROM burgers");
             $stmt->execute();
             return (int) $stmt->fetchColumn();
         }
