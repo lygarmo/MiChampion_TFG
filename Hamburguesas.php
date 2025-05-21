@@ -57,13 +57,13 @@
         // Alergenos por cada burger
         public function obtenerAlergenosPorBurger($burgerId) {
             $stmt = $this->db->prepare("
-            SELECT a.nombre
+            SELECT a.nombre, a.icono
             FROM alergenos a
             JOIN alergenos_burgers ab ON a.id = ab.id_alergeno
             WHERE ab.id_burger = ?");
             $stmt->execute([$burgerId]);
 
-            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         // Recuento burgers probadas
