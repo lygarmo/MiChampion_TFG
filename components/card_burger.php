@@ -3,7 +3,7 @@
     $alergenos = $alergenosPorBurger[$burger['id']] ?? [];
 ?>
 
-<a href="burger.html?id=<?= htmlspecialchars($burger['id']) ?>" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-amber-400 transition-shadow">
+<a href="detalle_burger.php?id=<?= htmlspecialchars($burger['id']) ?>" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-amber-400 transition-shadow">
     <div class="flex justify-center items-center p-4">
         <img src="public/<?= $burger['logo'] ?>" alt="Logo <?= htmlspecialchars($burger['restaurante']) ?>" class="h-12 object-contain">
     </div>

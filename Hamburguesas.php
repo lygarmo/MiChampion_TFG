@@ -49,7 +49,7 @@
             $stmt = $this->db->prepare("
                 SELECT a.nombre
                 FROM alergenos a
-                JOIN alergenos_burgers ab ON a.id = ab.alergeno_id");
+                JOIN alergenos_burgers ab ON a.id = ab.id_alergeno");
             $stmt->execute([$burgerId]);
             return $stmt->fetchAll(PDO::FETCH_COLUMN);
         }
@@ -59,8 +59,8 @@
             $stmt = $this->db->prepare("
             SELECT a.nombre
             FROM alergenos a
-            JOIN alergenos_burgers ab ON a.id = ab.alergeno_id
-            WHERE ab.burger_id = ?");
+            JOIN alergenos_burgers ab ON a.id = ab.id_alergeno
+            WHERE ab.id_burger = ?");
             $stmt->execute([$burgerId]);
 
             return $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -69,8 +69,8 @@
         // Recuento burgers probadas
         public function contarBurgersProbadasPorUsuario($usuarioId) {
             $stmt = $this->db->prepare("
-                SELECT COUNT(*) 
-                FROM burgers_probadas 
+                SELECT COUNT(*)
+                FROM burgers_probadas
                 WHERE id_usuario = ?
             ");
             $stmt->execute([$usuarioId]);

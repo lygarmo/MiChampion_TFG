@@ -8,7 +8,7 @@
 
 <header>
     <nav class="fixed top-0 w-full z-50 bg-neutral-800 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div class="flex justify-between items-center px-8">
                 
                 <!-- Logo -->
