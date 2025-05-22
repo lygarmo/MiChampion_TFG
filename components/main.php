@@ -1,12 +1,18 @@
-<main class="text-white pt-20">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+    .font-anton {
+        font-family: 'Anton', sans-serif;
+    }
+</style>
+<main class="text-white pt-10">
             <section id="fondo" class="mt-[35px]">
                 <div class="w-full h-[calc(100vh-160px)] overflow-hidden relative">
                     <img src="public/fondo.jpg" alt="Fondo decorativo" class="w-full h-full object-cover">
                     <!-- Capa gris sobre la imagen -->
                     <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
                         <div class="text-center">
-                            <h2 class="text-6xl font-bold text-white">¡Bienvenido a Mi Champion!</h2>
-                            <p class="mt-4 text-4xl text-white">Descubre las mejores hamburguesas y únete a nuestra comunidad.</p>
+                            <h2 class="text-[50px] md:text-[60px] lg:text-[70px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200">¡Bienvenido a Mi Champion!</h2>
+                            <p class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200">Descubre las mejores hamburguesas y únete a nuestra comunidad.</p>
                         </div>
                     </div>
                 </div>
@@ -14,13 +20,13 @@
             <hr class="border-white border-t w-[100%] mx-auto">
 
             <section id="preguntas" class="my-4 py-20 px-6">
-                <h2 class="text-3xl font-bold text-center">NUESTRA PLATAFORMA</h2>
+                <h2 class="text-[50px] md:text-[60px] lg:text-[70px] uppercase font-anton text-[#efece3] leading-none hover:text-amber-400 transition-colors duration-200 text-center">NUESTRA PLATAFORMA</h2>
                 <hr class="my-4 border-white border-t w-[60%] mx-auto">
                 <div class="max-w-3xl mx-auto mt-6 space-y-4">
                     <!-- Acordeón 1 -->
                     <div>
                         <button class="accordion-btn w-full flex justify-between items-center p-4 border border-white rounded-lg hover:bg-zinc-700 transition">
-                            <span class="text-lg font-semibold">¿Para qué sirve esta aplicación?</span>
+                            <span class="text-[10px] md:text-[20px] lg:text-[25px] uppercase font-anton text-[#efece3] leading-none">¿Para qué sirve esta aplicación?</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
@@ -33,7 +39,7 @@
                     <!-- Acordeón 2 -->
                     <div>
                         <button class="accordion-btn w-full flex justify-between items-center p-4 border border-white rounded-lg hover:bg-zinc-700 transition">
-                            <span class="text-lg font-semibold">¿Cómo se utiliza?</span>
+                            <span class="text-[10px] md:text-[20px] lg:text-[25px] uppercase font-anton text-[#efece3] leading-none">¿Cómo se utiliza?</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
@@ -46,7 +52,7 @@
                     <!-- Acordeón 3 -->
                     <div>
                         <button class="accordion-btn w-full flex justify-between items-center p-4 border border-white rounded-lg hover:bg-zinc-700 transition">
-                            <span class="text-lg font-semibold">¿Cómo crear una cuenta?</span>
+                            <span class="text-[10px] md:text-[20px] lg:text-[25px] uppercase font-anton text-[#efece3] leading-none">¿Cómo crear una cuenta?</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
@@ -59,7 +65,7 @@
                     <!-- Acordeón 4 -->
                     <div>
                         <button class="accordion-btn w-full flex justify-between items-center p-4 border border-white rounded-lg hover:bg-zinc-700 transition">
-                            <span class="text-lg font-semibold">¿Puedo crearme una cuenta siendo menor de edad?</span>
+                            <span class="text-[10px] md:text-[20px] lg:text-[25px] uppercase font-anton text-[#efece3] leading-none">¿Puedo crearme una cuenta siendo menor de edad?</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>

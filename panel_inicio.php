@@ -71,9 +71,7 @@
 
     <body class="bg-neutral-900">
         <!-- Incluir el header -->
-        <?php include('components/header_sesion.php'); ?>
-
-
+        <?php include('components/header.php'); ?>
     <main>
 
   <!-- Sección de estadísticas del usuario -->
