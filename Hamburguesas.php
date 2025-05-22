@@ -106,6 +106,13 @@
             ]);
         }
 
+        public function desmarcarComoProbada($usuarioId, $burgerId) {
+            $stmt = $this->db->prepare("DELETE FROM burgers_probadas WHERE id_burger = :burgerId AND id_usuario = :usuarioId");
+            return $stmt->execute([
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+        }
 
 
     }
