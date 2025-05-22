@@ -9,7 +9,6 @@
         $password = $_POST['password'];
 
     }
-    
 
     $datos = [
         'email' => $email,
@@ -30,7 +29,7 @@ if (empty($email) || empty($password)) {
 
     if ($resultado) {
         // Usuario autenticado correctamente
-        $_SESSION['email'] = $resultado['email']; 
+        $_SESSION['email'] = $resultado['email'];
         header('Location: panel_inicio.php');
         exit();
     } else {

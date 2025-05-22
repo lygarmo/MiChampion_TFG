@@ -89,5 +89,24 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function probada($usuarioId, $burgerId) {
+            $stmt = $this->db->prepare("SELECT 1 FROM burgers_probadas WHERE id_usuario = :usuarioId AND id_burger = :burgerId LIMIT 1");
+            $stmt->execute([
+                ':usuarioId' => $usuarioId,
+                ':burgerId' => $burgerId
+            ]);
+            return $stmt->fetchColumn() !== false;
+        }
+
+        public function marcarComoProbada($usuarioId, $burgerId) {
+            $stmt = $this->db->prepare("INSERT INTO burgers_probadas (id_burger, id_usuario) VALUES (:burgerId, :usuarioId)");
+            return $stmt->execute([
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+        }
+
+
+
     }
 ?>
