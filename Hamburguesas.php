@@ -114,6 +114,41 @@
             ]);
         }
 
+        public function guardarAtributoFavorito($usuarioId, $burgerId, $atributo) {
+            $stmt = $this->db->prepare("UPDATE burgers_probadas SET atributo_favorito = :atributo WHERE id_burger = :burgerId AND id_usuario = :usuarioId");
+            return $stmt->execute([
+                ':atributo' => $atributo,
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+        }
+
+        public function obtenerAtributoFavorito($usuarioId, $burgerId) {
+            $stmt = $this->db->prepare("SELECT atributo_favorito FROM burgers_probadas WHERE id_burger = :burgerId AND id_usuario = :usuarioId");
+            $stmt->execute([
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+            return $stmt->fetchColumn();
+        }
+
+        public function guardarValoracion($usuarioId, $burgerId, $valoracion) {
+            $stmt = $this->db->prepare("UPDATE burgers_probadas SET calificacion = :valoracion WHERE id_burger = :burgerId AND id_usuario = :usuarioId");
+            return $stmt->execute([
+                ':valoracion' => $valoracion,
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+        }
+
+        public function obtenerValoracion($usuarioId, $burgerId) {
+            $stmt = $this->db->prepare("SELECT calificacion FROM burgers_probadas WHERE id_burger = :burgerId AND id_usuario = :usuarioId");
+            $stmt->execute([
+                ':burgerId' => $burgerId,
+                ':usuarioId' => $usuarioId
+            ]);
+            return $stmt->fetchColumn(); // devuelve el número directamente
+        }
 
     }
 ?>

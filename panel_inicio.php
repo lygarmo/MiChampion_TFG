@@ -199,7 +199,7 @@
 
 
         <!-- Incluir el footer -->
-        <?php include('components/footer_sesion.php'); ?>
+        <?php include('components/footer.php'); ?>
 
     </body>
         <script>

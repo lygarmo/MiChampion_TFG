@@ -37,6 +37,13 @@
     $burgerId = $burger['id'];
 
     $yaProbada = $hamburguesas->probada($usuarioId, $burgerId);
+
+    $atributos = ['Pan', 'Carne', 'Combinacion', 'Originalidad', 'Presentacion'];
+
+    $valoracionGuardada = $hamburguesas->obtenerValoracion($usuarioId, $burger['id']) ?? 0;
+    $atributoFavoritoGuardado = $hamburguesas->obtenerAtributoFavorito($usuarioId, $burger['id']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -93,27 +100,75 @@
                     <!-- Acciones -->
                     <?php if (isset($_SESSION['email'])): ?>
                         <!-- Usuario con sesión -->
-                        <div class="flex mt-8" id="acciones-burger-<?= $burger['id'] ?>">
+                        <div class="mt-8" id="acciones-burger-<?= $burger['id'] ?>">
                             <?php if ($yaProbada): ?>
-                                <p class="text-2xl md:text-4xl font-anton text-white uppercase mb-8 mr-5">¿Te equivocaste de burger? 😅</p>
-                                <form method="POST" action="marcar.php" class="inline">
-                                    <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
-                                    <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
-                                    <input type="hidden" name="marcar" value="desmarcar">
-                                    <button type="submit" class="text-2xl md:text-4xl font-anton text-amber-400 uppercase mb-8 transition-shadow duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.8)]">
-                                        Desmarcar como probada
-                                    </button>
-                                </form>
+                                <div class="h-1 w-full bg-amber-400 rounded animate-pulse my-10 mx-auto"></div>
+
+                                <div class="flex flex-col items-center justify-center text-center mb-20">
+                                    <p class="text-2xl md:text-4xl font-anton text-white uppercase mb-8">¿Qué fue lo mejor de esta burger?</p>
+                                    <div class="flex flex-wrap justify-center gap-4 mt-6">
+                                        <?php foreach ($atributos as $atributo): ?>
+                                            <form method="POST" action="guardar_atributo.php">
+                                                <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
+                                                <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
+                                                <input type="hidden" name="atributo_favorito" value="<?= $atributo ?>">
+                                                <button type="submit" class="cursor-pointer text-center focus:outline-none">
+                                                    <img 
+                                                        src="public/<?= $atributo ?>.svg"
+                                                        alt="<?= ucfirst($atributo) ?>"
+                                                        class="w-20 h-20 object-contain rounded-full border-4 
+                                                            <?= ($atributo === $atributoFavoritoGuardado) ? 'border-amber-400' : 'border-transparent' ?> 
+                                                            hover:border-amber-400 hover:shadow-lg transition duration-300 mx-auto"
+                                                    >
+                                                    <p class="text-1xl md:text-2xl font-anton text-white mt-2"><?= ucfirst($atributo) ?></p>
+                                                </button>
+                                            </form>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <div class="h-1 w-full bg-amber-400 rounded animate-pulse my-10 mx-auto"></div>
+
+                                <div class="mt-20 text-center mt-10 mb-20">
+                                    <p class="text-2xl md:text-4xl font-anton text-white uppercase mb-4">¿Qué puntuación le das?</p>
+                                    <div class="flex justify-center gap-2 text-4xl">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <form method="POST" action="guardar_valoracion.php">
+                                            <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
+                                            <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
+                                            <input type="hidden" name="valoracion" value="<?= $i ?>">
+                                            <button type="submit" class="<?= $i <= $valoracionGuardada ? 'text-amber-400' : 'text-gray-400' ?> hover:text-amber-400 transition duration-200">
+                                                ★
+                                            </button>
+                                        </form>
+                                    <?php endfor; ?>
+                                </div>
+                                <div class="h-2 w-full bg-amber-400 rounded animate-pulse my-10 mx-auto"></div>
+
+
+                                <div class="flex items-center justify-center gap-4 flex-wrap text-center mr-20 mt-20">
+                                    <p class="text-2xl md:text-3xl font-anton text-white uppercase mb-8">¿Te equivocaste de burger? 😅</p>
+                                    <form method="POST" action="marcar.php" class="inline">
+                                        <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
+                                        <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
+                                        <input type="hidden" name="marcar" value="desmarcar">
+                                        <button type="submit" class="text-2xl md:text-3xl font-anton text-amber-400 uppercase mb-8 transition-shadow duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.8)]">
+                                            Desmarcar como probada
+                                        </button>
+                                    </form>
+                                </div>
+
                             <?php else: ?>
-                                <p class="text-2xl md:text-4xl font-anton text-white uppercase mb-8 mr-5">¿Ya la has probado?</p>
-                                <form method="POST" action="marcar.php" class="inline">
-                                    <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
-                                    <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
-                                    <input type="hidden" name="marcar" value="marcar">
-                                    <button type="submit" class="text-2xl md:text-4xl font-anton text-amber-400 uppercase mb-8 transition-shadow duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.8)]">
-                                        Marcar como probada
-                                    </button>
-                                </form>
+                                <div class="flex items-center justify-center gap-4 flex-wrap text-center mr-20 mt-20">
+                                    <p class="text-2xl md:text-4xl font-anton text-white uppercase mb-8 mr-5">¿Ya la has probado?</p>
+                                    <form method="POST" action="marcar.php" class="inline">
+                                        <input type="hidden" name="id_burger" value="<?= htmlspecialchars($burger['id']) ?>">
+                                        <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
+                                        <input type="hidden" name="marcar" value="marcar">
+                                        <button type="submit" class="text-2xl md:text-4xl font-anton text-amber-400 uppercase mb-8 transition-shadow duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.8)]">
+                                            Marcar como probada
+                                        </button>
+                                    </form>
+                                </div>
                             <?php endif; ?>
                         </div>
 
@@ -134,5 +189,39 @@
         </main>
 
         <?php include('components/footer.php'); ?>
+        <script>
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', () => {
+                    sessionStorage.setItem('scrollPos', window.scrollY);
+                });
+            });
+
+            // Guardar posición al enviar cualquier formulario
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', () => {
+                sessionStorage.setItem('scrollPos', window.scrollY);
+                });
+            });
+
+            // Al cargar, restaurar scroll si existe
+            window.addEventListener('load', () => {
+                const scrollPos = sessionStorage.getItem('scrollPos');
+                if (scrollPos) {
+                    // Primero nos aseguramos que el scroll está arriba
+                    window.scrollTo(0, 0);
+
+                    // Luego, tras un pequeño retraso (ejemplo 100ms), hacemos el scroll suave a la posición guardada
+                    setTimeout(() => {
+                    window.scrollTo({
+                        top: parseInt(scrollPos),
+                        behavior: 'smooth'
+                    });
+                    }, 100);
+
+                    // Opcional: limpiamos el storage para la próxima carga
+                    sessionStorage.removeItem('scrollPos');
+                }
+            });
+        </script>
     </body>
 </html>
