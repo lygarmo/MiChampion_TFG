@@ -28,10 +28,14 @@ if (empty($email) || empty($password)) {
     $resultado = $usuario->autenticarUsuario($email, $password);
 
     if ($resultado) {
-        // Usuario autenticado correctamente
-        $_SESSION['email'] = $resultado['email'];
-        header('Location: panel_inicio.php');
-        exit();
+        if (isset($_SESSION['redirect_after_login'])) {
+            $redirect = $_SESSION['redirect_after_login'];
+            $_SESSION['email'] = $resultado['email'];
+            unset($_SESSION['redirect_after_login']);
+            header("Location: $redirect");
+        } else {
+            header("Location: panel_inicio.php"); // por defecto
+        }
     } else {
         // Credenciales incorrectas
         $mensaje = "Email o contraseña incorrectos.";

@@ -35,12 +35,15 @@
             // Insertar el usuario
             $usuario->insertarUsuario($nombre, $apellidos, $email, $password);
 
-            // Opcional: iniciar sesión automáticamente
+            // iniciar sesión automáticamente
             $_SESSION['email'] = $email;
-
-            // Redirigir a otra página (inicio, perfil, etc.)
-            header('Location: panel_inicio.php');
-            exit();
+            if (isset($_SESSION['redirect_after_login'])) {
+                $redirect = $_SESSION['redirect_after_login'];
+                unset($_SESSION['redirect_after_login']);
+                header("Location: $redirect");
+            } else {
+                header("Location: panel_inicio.php"); // por defecto
+            }
         }
     }
 

@@ -150,5 +150,32 @@
             return $stmt->fetchColumn(); // devuelve el número directamente
         }
 
+        public function obtenerTodosLosAlergenos(){
+            $stmt = $this->db->prepare("SELECT * FROM alergenos");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function obtenerBurgersSinAlergenos(array $idsAlergenos): array {
+            if (empty($idsAlergenos)) {
+                return $this->obtenerTodasLasBurgers();
+            }
+
+            $placeholders = implode(',', array_fill(0, count($idsAlergenos), '?'));
+
+            // Consulta: selecciona burgers que NO tienen ninguno de los alérgenos seleccionados
+            $stmt = $this->db->prepare("
+                SELECT b.*
+                FROM burgers b
+                WHERE b.id NOT IN (
+                    SELECT ab.id_burger
+                    FROM alergenos_burgers ab
+                    WHERE ab.id_alergeno IN ($placeholders))");
+            $stmt->execute($idsAlergenos);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
+
     }
 ?>

@@ -16,6 +16,8 @@
         header('Location: carta_burgers.php');
         exit();
     }
+    
+    $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI']; // Guarda la URL actual
 
     $idBurger = intval($_GET['id']);
 
@@ -42,7 +44,7 @@
 
     $valoracionGuardada = $hamburguesas->obtenerValoracion($usuarioId, $burger['id']) ?? 0;
     $atributoFavoritoGuardado = $hamburguesas->obtenerAtributoFavorito($usuarioId, $burger['id']);
-
+    $redirect = urlencode("burger_detalle.php?id=$burgerId");
 
 ?>
 
@@ -179,7 +181,7 @@
                             <p class="text-1xl font-extrabold text-white uppercase mb-8">Inicia sesión para marcarla como probada y darle una puntuación.</p>
                             <div class="flex justify-center gap-4">
                                 <a href="login.php" class="px-4 py-2 bg-zinc-700 text-white rounded hover:bg-amber-400 hover:text-black transition">Login</a>
-                                <a href="registro.php" class="px-4 py-2 bg-zinc-700 text-white rounded hover:bg-amber-400 hover:text-black transition">Registro</a>
+                                <a href="registro.php?redirect=<?= $redirect ?>" class="px-4 py-2 bg-zinc-700 text-white rounded hover:bg-amber-400 hover:text-black transition">Registro</a>
                             </div>
                         </div>
 
