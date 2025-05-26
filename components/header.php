@@ -1,7 +1,6 @@
 <?php
     session_start();
 ?>
-
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
     .font-anton {
@@ -19,7 +18,7 @@
                     </a>
 
                     <!-- Botones -->
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-8">
                         <a href="carta_burgers.php" class="text-[20px] md:text-[30px] lg:text-[35px] uppercase font-anton text-[#efece3] px-4 py-2 leading-none hover:text-amber-400 transition-colors duration-200">Burgers</a>
                         <a href="login.php" class="text-[16px] md:text-[20px] lg:text-[24px] uppercase font-anton text-[#efece3] border border-[#efece3] px-4 py-2 rounded hover:text-amber-400 hover:border-amber-400 transition-colors duration-200">Iniciar sesión</a>
                         <a href="registro.php" class="text-[16px] md:text-[20px] lg:text-[24px] uppercase font-anton text-[#efece3] border border-[#efece3] px-4 py-2 rounded hover:text-amber-400 hover:border-amber-400 transition-colors duration-200">Registrarse</a>

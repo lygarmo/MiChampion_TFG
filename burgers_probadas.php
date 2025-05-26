@@ -79,15 +79,21 @@
         <?php include('components/header.php'); ?>
 
         <main class="pt-20 bg-gradient-to-br from-[#6c6c6c] to-[#343434] text-white p-6 min-h-screen mt-8">
-            <div class="max-w-xl mx-auto text-center mb-8">
-                <h1 class="text-[20px] md:text-[30px] lg:text-[35px] uppercase text-amber-400">Hamburguesas probadas</h1>
-                <p class="text-[10px] md:text-[20px] lg:text-[30px] text-[#efece3]">Estas son las burgers que ya has disfrutado.<br>
+            <div class="w-full mx-auto text-center mb-12 p-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-300 rounded-lg shadow-lg border border-amber-300">
+                <h1 class="text-[22px] md:text-[32px] lg:text-[38px] uppercase text-neutral-800 font-extrabold tracking-widest mb-4 drop-shadow-md">
+                    Hamburguesas probadas
+                </h1>
+                <p class="text-[12px] md:text-[18px] lg:text-[28px] text-neutral-800 leading-relaxed mb-4">
+                    Estas son las <span class="font-semibold underline decoration-amber-400 decoration-2">burgers</span> que ya has disfrutado.<br>
                     ¿Quieres cambiar alguna nota o seguir sumando nuevas experiencias?<br>
-                    <span class="text-amber-400">Tú mandas en tu paladar.</span> 😋
+                    <span class="text-neutral-800 font-bold">Tú mandas en tu paladar.</span> 😋
                 </p>
-                <p class="mt-4 text-sm text-white">Has probado <strong class="text-amber-400"><?php echo $burgers_probadas; ?></strong> de <strong class="text-amber-400"><?php echo $burgers_totales; ?></strong> hamburguesas disponibles. <br>¡Te faltan solo <strong><?php echo $burgers_totales - $burgers_probadas; ?></strong>! 🔔</p>
+                <p class="mt-6 text-sm text-neutral-800 font-medium">
+                    Has probado <strong class="text-violet-900"><?php echo $burgers_probadas; ?></strong> de <strong class="text-violet-900"><?php echo $burgers_totales; ?></strong> hamburguesas disponibles.<br>
+                    ¡¡¡Te faltan solo <strong class="text-violet-900"><?php echo $burgers_totales - $burgers_probadas; ?></strong>!!!
+                </p>
             </div>
-            <div class="h-2 w-full bg-amber-400 rounded animate-pulse my-10 mx-auto"></div>
+
 
             <form method="GET" action="burgers_probadas.php" class="mb-6 flex flex-wrap items-center gap-4">
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 flex-grow">

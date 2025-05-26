@@ -59,5 +59,26 @@
             return $stmt->fetchColumn();
         }
 
+        public function obtenerDatosUsuarios($usuarioEmail) {
+            $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE email = :usuarioEmail");
+            $stmt->execute([
+                ':usuarioEmail' => $usuarioEmail
+            ]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function verificarPassword($usuarioId, $passwordActual) {
+            $stmt = $this->conn->prepare("SELECT password FROM usuarios WHERE id = ?");
+            $stmt->execute([$usuarioId]);
+            $hash = $stmt->fetchColumn();
+            return password_verify($passwordActual, $hash);
+        }
+
+        public function actualizarPassword($usuarioId, $nuevaPassword) {
+            $hash = password_hash($nuevaPassword, PASSWORD_BCRYPT);
+            $stmt = $this->conn->prepare("UPDATE usuarios SET password = ? WHERE id = ?");
+            return $stmt->execute([$hash, $usuarioId]);
+        }
+
     }
 ?>
