@@ -116,7 +116,7 @@
                             font-semibold text-black shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-200">Limpiar filtros</a>
                     </div>
                 </form>
-
+                <div class="h-2 w-full bg-amber-400 rounded animate-pulse my-10 mx-auto"></div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <?php if (count($burgers) === 0): ?>

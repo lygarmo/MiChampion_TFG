@@ -177,7 +177,7 @@
 
         public function saberBurgersProbadas($idUsuario){
             $stmt = $this->db->prepare("
-                SELECT b.nombre, b.descripcion, b.imagen, b.logo, b.destacado, bp.calificacion, bp.atributo_favorito
+                SELECT b.id, b.nombre, b.descripcion, b.imagen, b.logo, b.destacado, bp.calificacion, bp.atributo_favorito
                 FROM burgers_probadas bp
                 JOIN burgers b on bp.id_burger=b.id
                 WHERE bp.id_usuario = :idUsuario");
@@ -185,6 +185,21 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function obtenerBurgersSinAlergenosProbadas(array $alergenosSeleccionados, int $idUsuario): array {
+            $burgersProbadas = $this->saberBurgersProbadas($idUsuario);
+            if (empty($alergenosSeleccionados)) {
+                return $burgersProbadas;
+            }
+            $burgersSinAlergenos = $this->obtenerBurgersSinAlergenos($alergenosSeleccionados);
+            $idsSinAlergenos = array_column($burgersSinAlergenos, 'id');
 
+            $burgersFiltradas = array_filter($burgersProbadas, function ($burger) use ($idsSinAlergenos) {
+                return in_array($burger['id'], $idsSinAlergenos);
+            });
+
+            return array_values($burgersFiltradas);
+        }
     }
+
+
 ?>
