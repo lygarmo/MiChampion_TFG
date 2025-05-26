@@ -28,9 +28,10 @@ if (empty($email) || empty($password)) {
     $resultado = $usuario->autenticarUsuario($email, $password);
 
     if ($resultado) {
+        $_SESSION['email'] = $resultado['email'];
+
         if (isset($_SESSION['redirect_after_login'])) {
             $redirect = $_SESSION['redirect_after_login'];
-            $_SESSION['email'] = $resultado['email'];
             unset($_SESSION['redirect_after_login']);
             header("Location: $redirect");
         } else {

@@ -115,13 +115,8 @@
                                                 <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuarioId) ?>">
                                                 <input type="hidden" name="atributo_favorito" value="<?= $atributo ?>">
                                                 <button type="submit" class="cursor-pointer text-center focus:outline-none">
-                                                    <img 
-                                                        src="public/<?= $atributo ?>.svg"
-                                                        alt="<?= ucfirst($atributo) ?>"
-                                                        class="w-20 h-20 object-contain rounded-full border-4 
-                                                            <?= ($atributo === $atributoFavoritoGuardado) ? 'border-amber-400' : 'border-transparent' ?> 
-                                                            hover:border-amber-400 hover:shadow-lg transition duration-300 mx-auto"
-                                                    >
+                                                    <img src="public/<?= $atributo ?>.svg" alt="<?= ucfirst($atributo) ?>" class="w-20 h-20 object-contain rounded-full border-4 
+                                                        <?= ($atributo === $atributoFavoritoGuardado) ? 'border-amber-400' : 'border-transparent' ?> hover:border-amber-400 hover:shadow-lg transition duration-300 mx-auto">
                                                     <p class="text-1xl md:text-2xl font-anton text-white mt-2"><?= ucfirst($atributo) ?></p>
                                                 </button>
                                             </form>

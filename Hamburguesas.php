@@ -175,6 +175,15 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function saberBurgersProbadas($idUsuario){
+            $stmt = $this->db->prepare("
+                SELECT b.nombre, b.descripcion, b.imagen, b.logo, b.destacado, bp.calificacion, bp.atributo_favorito
+                FROM burgers_probadas bp
+                JOIN burgers b on bp.id_burger=b.id
+                WHERE bp.id_usuario = :idUsuario");
+            $stmt->execute([':idUsuario' => $idUsuario]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 
 
     }
