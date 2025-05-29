@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3000
--- Tiempo de generación: 19-05-2025 a las 21:35:12
+-- Tiempo de generación: 29-05-2025 a las 13:10:48
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -393,16 +393,25 @@ CREATE TABLE `burgers_probadas` (
   `id_burger` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `calificacion` int(11) DEFAULT NULL CHECK (`calificacion` between 1 and 5),
-  `atributo_favorito` enum('pan','carne','salsas','acompañamiento','presentación') DEFAULT NULL,
-  `fecha_prueba` timestamp NOT NULL DEFAULT current_timestamp()
+  `atributo_favorito` enum('Pan','Carne','Combinacion','Originalidad','Presentacion') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `burgers_probadas`
 --
 
-INSERT INTO `burgers_probadas` (`id`, `id_burger`, `id_usuario`, `calificacion`, `atributo_favorito`, `fecha_prueba`) VALUES
-(1, 10, 1, NULL, NULL, '2025-05-19 19:14:11');
+INSERT INTO `burgers_probadas` (`id`, `id_burger`, `id_usuario`, `calificacion`, `atributo_favorito`) VALUES
+(21, 3, 1, 5, 'Combinacion'),
+(22, 6, 1, 4, 'Presentacion'),
+(24, 15, 11, NULL, NULL),
+(25, 18, 1, 5, NULL),
+(26, 2, 1, 3, NULL),
+(27, 2, 10, NULL, 'Combinacion'),
+(29, 8, 1, 4, 'Pan'),
+(30, 9, 1, NULL, NULL),
+(32, 10, 1, NULL, NULL),
+(33, 4, 1, NULL, NULL),
+(34, 19, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -476,8 +485,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `creado_en`) VALUES
 (1, 'Lydia', 'García', 'lydia@gmail.com', '1234', '2025-05-16 16:36:24'),
-(2, 'Prueba', 'prueba 1', 'prueba@gmail.com', '1234', '2025-05-16 16:38:05'),
-(7, 'Lydia', 'García', 'l@gmail.com', '1234', '2025-05-19 12:28:55');
+(7, 'Lydia', 'García', 'l@gmail.com', '1234', '2025-05-19 12:28:55'),
+(10, 'pepe', 'pepe', 'pepe@gmail.com', '1234', '2025-05-23 10:29:38'),
+(11, 'prueba', 'prueba', 'prueba@gmail.com', '1234', '2025-05-23 12:16:20');
 
 --
 -- Índices para tablas volcadas
@@ -544,7 +554,7 @@ ALTER TABLE `burgers`
 -- AUTO_INCREMENT de la tabla `burgers_probadas`
 --
 ALTER TABLE `burgers_probadas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `entrantes`
@@ -562,7 +572,7 @@ ALTER TABLE `postres`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
