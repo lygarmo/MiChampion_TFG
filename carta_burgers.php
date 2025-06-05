@@ -28,7 +28,7 @@
         <meta charset="UTF-8">
         <title>Mi Champion - Carta de Burgers</title>
         <script src="https://cdn.tailwindcss.com"></script>
-
+        <link rel="icon" href="/MiChampion_TFG/public/michampion_logo.png" type="image/png">
         <style>
             /* Oculta el checkbox real */
             input[type="checkbox"] {

@@ -48,6 +48,7 @@
         <title>Mi Champion - Perfil</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <link rel="icon" href="/MiChampion_TFG/public/michampion_logo.png" type="image/png">
     </head>
 
     <body>

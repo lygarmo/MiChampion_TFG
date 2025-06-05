@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3000
--- Tiempo de generación: 29-05-2025 a las 13:10:48
+-- Tiempo de generación: 06-06-2025 a las 01:06:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -403,7 +403,6 @@ CREATE TABLE `burgers_probadas` (
 INSERT INTO `burgers_probadas` (`id`, `id_burger`, `id_usuario`, `calificacion`, `atributo_favorito`) VALUES
 (21, 3, 1, 5, 'Combinacion'),
 (22, 6, 1, 4, 'Presentacion'),
-(24, 15, 11, NULL, NULL),
 (25, 18, 1, 5, NULL),
 (26, 2, 1, 3, NULL),
 (27, 2, 10, NULL, 'Combinacion'),
@@ -411,58 +410,29 @@ INSERT INTO `burgers_probadas` (`id`, `id_burger`, `id_usuario`, `calificacion`,
 (30, 9, 1, NULL, NULL),
 (32, 10, 1, NULL, NULL),
 (33, 4, 1, NULL, NULL),
-(34, 19, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `entrantes`
---
-
-CREATE TABLE `entrantes` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `restaurante` varchar(100) NOT NULL,
-  `descripcion` text NOT NULL,
-  `logo` varchar(255) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `entrantes`
---
-
-INSERT INTO `entrantes` (`id`, `nombre`, `restaurante`, `descripcion`, `logo`, `imagen`, `creado_en`) VALUES
-(1, 'PATATAS FRITAS', 'YBARRA', 'Puedes acompañarlas con tus salsas preferidas en la zona de salseo.', 'logos/ybarra.png', 'entrantes/patatas.jpg', '2025-05-13 12:20:04'),
-(2, 'FINGERS DE POLLO', 'CHEECK\'S', 'Solomillitos de pollo empanado y fritos.', 'logos/cheecks.png', 'entrantes/fingers.jpg', '2025-05-13 12:20:04'),
-(3, 'TEQUEÑOS', 'CHEECK\'S', 'Masa de harina de trigo frita, rellena de queso.', 'logos/cheecks.png', 'entrantes/tequenos.png', '2025-05-13 12:20:04'),
-(4, 'COMBO CHECK\'S', 'CHECK\'S', 'Disfruta de dos entrantes a un precio especial.', 'logos/cheecks.png', 'entrantes/combo.png', '2025-05-13 12:20:04');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `postres`
---
-
-CREATE TABLE `postres` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `restaurante` varchar(100) NOT NULL,
-  `descripcion` text NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `postres`
---
-
-INSERT INTO `postres` (`id`, `nombre`, `restaurante`, `descripcion`, `imagen`, `logo`, `creado_en`) VALUES
-(1, 'TARTA DE QUESO', 'CIRIACO', 'Exquisito cheesecake, elaborado con una base suave y cremosa. Personalízala con el topping de tu elección, que conquistará tu paladar.', 'postres/.tartaqueso.jpg', 'logo/ciriaco.png', '2025-05-13 12:29:13'),
-(2, 'DONAS', 'IOAN', 'Dona personalizada con tu topping y crema favorita.', 'postres/donas.jpg', 'logo/ioan.png', '2025-05-13 12:29:13'),
-(3, 'HOT POLO', 'LOCOPOLO', 'Gofre crujiente por fuera, polo helado por dentro. Elige entre 10 sabores y disfruta del contraste más loco que vas a probar. (Consultar los alérgenos de las posibles combinaciones en el food truck).', 'postres/hotpolo.png', 'logos/locopolo.png', '2025-05-13 12:29:35');
+(34, 19, 1, NULL, NULL),
+(35, 21, 12, 5, 'Combinacion'),
+(36, 2, 12, 3, 'Originalidad'),
+(37, 8, 12, 5, 'Carne'),
+(38, 9, 12, 4, 'Presentacion'),
+(39, 16, 12, 5, 'Pan'),
+(40, 23, 12, 1, 'Presentacion'),
+(41, 24, 12, 2, 'Carne'),
+(46, 2, 11, NULL, NULL),
+(47, 6, 11, NULL, NULL),
+(48, 11, 11, NULL, NULL),
+(49, 10, 11, NULL, NULL),
+(50, 25, 11, NULL, NULL),
+(51, 21, 11, NULL, NULL),
+(52, 8, 11, NULL, NULL),
+(53, 7, 11, NULL, NULL),
+(54, 23, 11, NULL, NULL),
+(55, 26, 11, NULL, NULL),
+(56, 27, 11, NULL, NULL),
+(57, 4, 11, NULL, NULL),
+(58, 3, 11, NULL, NULL),
+(59, 16, 11, NULL, NULL),
+(60, 14, 11, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -487,7 +457,8 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `cread
 (1, 'Lydia', 'García', 'lydia@gmail.com', '1234', '2025-05-16 16:36:24'),
 (7, 'Lydia', 'García', 'l@gmail.com', '1234', '2025-05-19 12:28:55'),
 (10, 'pepe', 'pepe', 'pepe@gmail.com', '1234', '2025-05-23 10:29:38'),
-(11, 'prueba', 'prueba', 'prueba@gmail.com', '1234', '2025-05-23 12:16:20');
+(11, 'prueba', 'prueba', 'prueba@gmail.com', '1234', '2025-05-23 12:16:20'),
+(12, 'Samuel', 'Prieto de la Fuente', 'samuelprieto17@gmail.com', 'lalidiesmolona', '2025-05-29 14:30:44');
 
 --
 -- Índices para tablas volcadas
@@ -522,18 +493,6 @@ ALTER TABLE `burgers_probadas`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `entrantes`
---
-ALTER TABLE `entrantes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `postres`
---
-ALTER TABLE `postres`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -554,25 +513,13 @@ ALTER TABLE `burgers`
 -- AUTO_INCREMENT de la tabla `burgers_probadas`
 --
 ALTER TABLE `burgers_probadas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT de la tabla `entrantes`
---
-ALTER TABLE `entrantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `postres`
---
-ALTER TABLE `postres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas

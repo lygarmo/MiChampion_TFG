@@ -55,7 +55,7 @@
         <title><?= htmlspecialchars($burger['nombre']) ?> - Detalles</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
+        <link rel="icon" href="/MiChampion_TFG/public/michampion_logo.png" type="image/png">
     </head>
     <body class="bg-gradient-to-br from-[#6c6c6c] to-[#343434] text-white">
         <?php include('components/header.php');?>

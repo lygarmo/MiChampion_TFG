@@ -9,6 +9,7 @@
         <title>Iniciar sesión</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="/git/TFG/public/js/index.js"></script>
+        <link rel="icon" href="/MiChampion_TFG/public/michampion_logo.png" type="image/png">
     </head>
     
     <body class="flex flex-col min-h-full bg-neutral-800">

@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Mi Champion</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" href="/MiChampion_TFG/public/michampion_logo.png" type="image/png">
     </head>
 
     <body class="bg-neutral-800">
