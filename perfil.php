@@ -25,6 +25,9 @@
     $burgersPorNivel = ceil($burgers_totales / $niveles);
     $nivelActual = min(ceil($burgers_probadas / $burgersPorNivel), $niveles);
     $burgersEnNivelActual = $burgers_probadas % $burgersPorNivel;
+    if ($burgersEnNivelActual === 0 && $burgers_probadas > 0) {
+        $burgersEnNivelActual = $burgersPorNivel;
+    }
     $progresoNivel = min(($burgersEnNivelActual / $burgersPorNivel) * 100, 100);
 
     $logros = [
@@ -64,7 +67,7 @@
                         <div class="absolute top-[35%] w-16 h-2 bg-green-500 rounded z-20"></div>
                     <?php endif; ?>
                     <?php if ($nivelActual >= 2): ?>
-                        <!-- Queso (solo si es nivel 2  -->
+                        <!-- Queso (solo si es nivel 2 ) -->
                         <div class="absolute top-[40%] w-16 h-2 bg-yellow-300 z-20"></div>
                     <?php endif; ?>
 
